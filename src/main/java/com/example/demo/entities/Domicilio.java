@@ -1,9 +1,17 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "domicilio")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Domicilio extends Base {
     @Column(name = "calle")
     private String calle;

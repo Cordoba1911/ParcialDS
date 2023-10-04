@@ -1,7 +1,6 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.Base;
-import com.example.demo.entities.Persona;
 import com.example.demo.repositories.BaseRepository;
 import jakarta.transaction.Transactional;
 
@@ -18,7 +17,7 @@ public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> i
 
     @Override
     @Transactional
-    public List findAll() throws Exception {
+    public List<E> findAll() throws Exception {
         try{
             List<E> entities = baseRepository.findAll();
             return entities;
@@ -42,7 +41,7 @@ public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> i
     @Transactional
     public E save(E entity) throws Exception {
         try{
-            entity = (E) baseRepository.save(entity);
+            entity = baseRepository.save(entity);
             return entity;
         } catch (Exception e){
             throw new Exception(e.getMessage());
